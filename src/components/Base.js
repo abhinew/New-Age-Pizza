@@ -25,7 +25,7 @@ class Base extends Component {
     };
 
     handleChange = event => {
-        console.log(event.target.value);
+        
         this.setState({ base: event.target.value });
         this.props.onBaseChange(event.target.value);
     };

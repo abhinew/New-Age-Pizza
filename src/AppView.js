@@ -11,7 +11,7 @@ import DeliveryDetails from './components/DeliveryDetails';
 class AppView extends Component {
   render() {
    
-    console.log(this.props.bases);
+    
     return (
       <div className="App">
        <h1>Welcome to New Age Pizza</h1>
