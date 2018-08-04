@@ -26,7 +26,8 @@ const styles = theme => ({
 class App extends Component {
   state = {
     base: '',
-    name: 'hai',
+    sauce: '',
+    toppings: ''
   };
   handleChange = event => {
     this.setState({ [event.target.name]: event.target.value });
@@ -38,11 +39,12 @@ class App extends Component {
     return (
       <div className="App">
        <h1>Welcome to New Age Pizza</h1>
-        <div class="container">
+        <div class="content">
           <form> 
             <label>
               Choose base:
             </label>
+            <br />
                 <FormControl className={classes.formControl}>
                 <Select
                   value={this.state.base}
@@ -60,15 +62,39 @@ class App extends Component {
                 <MenuItem value={"35cm NY Style € 13,49"}>35cm NY Style € 13,49</MenuItem>
               </Select>
             </FormControl>
-          
+          <br />
             <label>
               Choose sauce:
             </label>
+            <br />
+            <FormControl className={classes.formControl}>
+                <Select
+                  value={this.state.sauce}
+                  onChange={this.handleChange}
+                  inputProps={{
+                    name: 'sauce'
+                    // id: 'age-simple',
+                  }}
+                >
+                <MenuItem value="">
+                  <em>None</em>
+                </MenuItem>
+                <MenuItem value={"White sauce € 1,00"}>White sauce € 1,00</MenuItem>
+                <MenuItem value={"Red sauce € 1,00"}>Red sauce € 1,00</MenuItem>
+                <MenuItem value={"Mix it up € 1,50"}>Mix it up € 1,50</MenuItem>
+              </Select>
+            </FormControl>
+            <br />
             <label>
               Choose toppings:
             </label>
+            <br />
+            <div className="available-toppings">
+                
+            </div>
           </form>
           <div className="order-details">
+          Total cost
           </div>
         </div>
       </div>
