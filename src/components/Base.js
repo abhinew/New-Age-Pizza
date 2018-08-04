@@ -25,14 +25,16 @@ class Base extends Component {
     };
 
     handleChange = event => {
-        this.setState({ [event.target.name]: event.target.value });
+        console.log(event.target.value);
+        this.setState({ base: event.target.value });
+        this.props.onBaseChange(event.target.value);
     };
     createMenuItem = (item) => {
-        return (<MenuItem value={item.type}>{item.type}</MenuItem>)
+        return (<MenuItem value={item}>{item.type}</MenuItem>)
     }  
       
     render() {
-        console.log(this.props.bases);
+       
         const { classes } = this.props;
         
         return (    

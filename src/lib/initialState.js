@@ -30,7 +30,13 @@ const initialState =  {
     "Spinach",
     "Cherry tomatoes"
     ],
-    selection: {},
+    delivery: '',
+    selection: {
+        base: null,
+        sauce: null,
+        toppings: [],
+        delivery: false
+    },
     total: 0
 }
 

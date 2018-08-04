@@ -1,29 +1,15 @@
 import initialState from '../lib/initialState';
+import { ADD_BASE_SELECTION } from '../actions/ActionCreators';
+
 
 export default (state = initialState, action = []) => {
-    
-    return state;
+    let newState = {...state};
+    switch (action.type) {
+        case ADD_BASE_SELECTION: 
+            newState.selection.base = action.payload
+            return newState;
+        default: 
+            return newState
+    }
 }
 
-// import { combineReducers } from 'redux'
-// import totalPrice from './totalPrice'
-
-// export default combineReducers({
-//     totalPrice: totalPrice
-// })
-
-
-// var state = {
-//     bases: {
-
-//     },
-//     sauces: [{
-
-//     }]
-// }
-
-
-// combineReducers({
-//     bases: basesReducer,
-//     sauces: saucesReducer,
-// })

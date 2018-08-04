@@ -49,9 +49,7 @@ class Sauce extends Component {
                   <em>None</em>
                 </MenuItem>
                 {this.props.sauces.map(this.createMenuItem)}
-                {/* <MenuItem value={"White sauce € 1,00"}>White sauce € 1,00</MenuItem>
-                <MenuItem value={"Red sauce € 1,00"}>Red sauce € 1,00</MenuItem>
-                <MenuItem value={"Mix it up € 1,50"}>Mix it up € 1,50</MenuItem> */}
+              
               </Select>
             </FormControl> 
             </div>
