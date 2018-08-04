@@ -16,13 +16,12 @@ function mapStateToProps(state) {
 }
 
 
-console.log(onBaseSelect);
-
 
 function mapDispatchToProps(dispatch, getState) {
+    
     return {
-        onBaseChange: function () {
-            dispatch(onBaseSelect());
+        onBaseChange: function (base) {
+            dispatch(onBaseSelect(base));
         },
     };
 }
