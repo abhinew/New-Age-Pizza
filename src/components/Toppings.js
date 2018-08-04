@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
-import MenuItem from '@material-ui/core/MenuItem';
+
 import { withStyles } from '@material-ui/core/styles';
 import Checkbox from '@material-ui/core/Checkbox';
-import FormGroup from '@material-ui/core/FormGroup';
+
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 
 
@@ -29,7 +27,11 @@ class Toppings extends Component {
       };
       handleChange = event => {
         this.setState({ [event.target.name]: event.target.value });
+
     }; 
+    createMenuItem = (item) => {
+        return (<FormControlLabel control={<Checkbox value="checkedC" />} label={item} />)
+    }
     render() {
         const { classes } = this.props;
         return (    
@@ -38,12 +40,8 @@ class Toppings extends Component {
               Choose maximum three toppings:
                 </label>
                 <br />
-                <FormControlLabel control={<Checkbox value="checkedC" />} label="Pineapple" />
-                <FormControlLabel control={<Checkbox value="checkedC" />} label="Corn" />
-                <FormControlLabel control={<Checkbox value="checkedC" />} label="Olives" />
-                <FormControlLabel control={<Checkbox value="checkedC" />} label="Red Onions" />
-                <FormControlLabel control={<Checkbox value="checkedC" />} label="Spinach" />
-                <FormControlLabel control={<Checkbox value="checkedC" />} label="Cherry tomatoes" />
+                {this.props.toppings.map(this.createMenuItem)}
+                
                 
             </div>
         );

@@ -26,6 +26,9 @@ class Sauce extends Component {
       handleChange = event => {
         this.setState({ [event.target.name]: event.target.value });
     }; 
+    createMenuItem = (item) => {
+      return (<MenuItem value={item.name}>{item.name}</MenuItem>)
+  }  
     render() {
         const { classes } = this.props;
         return (    
@@ -45,9 +48,10 @@ class Sauce extends Component {
                 <MenuItem value="">
                   <em>None</em>
                 </MenuItem>
-                <MenuItem value={"White sauce € 1,00"}>White sauce € 1,00</MenuItem>
+                {this.props.sauces.map(this.createMenuItem)}
+                {/* <MenuItem value={"White sauce € 1,00"}>White sauce € 1,00</MenuItem>
                 <MenuItem value={"Red sauce € 1,00"}>Red sauce € 1,00</MenuItem>
-                <MenuItem value={"Mix it up € 1,50"}>Mix it up € 1,50</MenuItem>
+                <MenuItem value={"Mix it up € 1,50"}>Mix it up € 1,50</MenuItem> */}
               </Select>
             </FormControl> 
             </div>

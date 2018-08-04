@@ -27,10 +27,14 @@ class Base extends Component {
     handleChange = event => {
         this.setState({ [event.target.name]: event.target.value });
     };
-      
+    createMenuItem = (item) => {
+        return (<MenuItem value={item.type}>{item.type}</MenuItem>)
+    }  
       
     render() {
+        console.log(this.props.bases);
         const { classes } = this.props;
+        
         return (    
             <div>
                 <label>
@@ -49,9 +53,8 @@ class Base extends Component {
                 <MenuItem value="">
                     <em>None</em>
                 </MenuItem>
-                <MenuItem value={"25 cm NY Style € 8,99"}>25cm NY Style € 8,99</MenuItem>
-                <MenuItem value={"30cm NY Style € 11,49"}>30cm NY Style € 11,49</MenuItem>
-                <MenuItem value={"35cm NY Style € 13,49"}>35cm NY Style € 13,49</MenuItem>
+                {this.props.bases.map(this.createMenuItem)}
+             
                 </Select>
                 </FormControl> 
             </div>
