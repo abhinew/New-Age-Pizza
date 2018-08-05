@@ -24,7 +24,10 @@ const styles = theme => ({
 class Toppings extends Component {
    
     handleChange = topping => event => {
-            this.props.onToppingChange(topping);
+        // if(this.props.selectedToppings.length < 3) {
+        //     this.props.onToppingChange(topping);
+        // }
+        this.props.onToppingChange(topping);
     }; 
     isChecked = (topping) => {
         if(this.props.selectedToppings.indexOf(topping) === -1) {
@@ -57,7 +60,7 @@ class Toppings extends Component {
                 </label>
                 <br />
                 {this.props.toppings.map(this.createMenuItem)}
-                
+                {this.props.selectedToppings.length >= 3 && <p style={{color: 'red'}}>You can choose maximum three toppings only</p>}
                 
             </div>
         );
