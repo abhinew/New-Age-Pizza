@@ -21,7 +21,7 @@ const styles = theme => ({
 
 class Base extends Component {
     state = {
-        base: ''
+        base: ""
     };
 
     handleChange = event => {
@@ -29,8 +29,9 @@ class Base extends Component {
         this.setState({ base: event.target.value });
         this.props.onBaseChange(event.target.value);
     };
+
     createMenuItem = (item) => {
-        return (<MenuItem value={item}>{item.type}</MenuItem>)
+        return (<MenuItem key={item.type} value={item.type}>{item.type}</MenuItem>)
     }  
       
     render() {
@@ -44,20 +45,20 @@ class Base extends Component {
                 </label>
                 <br />
                 <FormControl className={classes.formControl}>
-                <Select
-                    value={this.state.base}
-                    onChange={this.handleChange}
-                    inputProps={{
-                    name: 'base'
-                    // id: 'age-simple',
-                    }}
-                >
-                <MenuItem value="">
-                    <em>None</em>
-                </MenuItem>
-                {this.props.bases.map(this.createMenuItem)}
-             
-                </Select>
+                    <Select
+                        value={this.state.base}
+                        onChange={this.handleChange}
+                        inputProps={{
+                        name: 'base'
+                        // id: 'age-simple',
+                        }}
+                    >
+                    <MenuItem value="">
+                        <em>None</em>
+                    </MenuItem>
+                    {this.props.bases.map(this.createMenuItem)}
+                
+                    </Select>
                 </FormControl> 
             </div>
         );
