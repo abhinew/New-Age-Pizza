@@ -40,7 +40,7 @@ const initialState =  {
         toppings: [],
         delivery: false
     },
-    total: 0
+    total: 0.00
 }
 
 export default initialState;
