@@ -21,14 +21,15 @@ const styles = theme => ({
 
 class Sauce extends Component {
     state = {
-        sauce: ''
-      };
-      handleChange = event => {
-        this.setState({ [event.target.name]: event.target.value });
+      sauce: ""
+    };
+    handleChange = event => {
+      this.setState({ sauce: event.target.value });
+      this.props.onSauceChange(event.target.value);
     }; 
     createMenuItem = (item) => {
-      return (<MenuItem value={item.name}>{item.name}</MenuItem>)
-  }  
+      return (<MenuItem key={item.name} value={item.name}>{item.name}</MenuItem>)
+    }  
     render() {
         const { classes } = this.props;
         return (    

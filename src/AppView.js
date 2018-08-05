@@ -4,7 +4,6 @@ import Base from './components/Base';
 import Sauce from './components/Sauce';
 import Toppings from './components/Toppings';
 import OrderDetails from './components/OrderDetails';
-import { withStyles } from '@material-ui/core';
 import DeliveryDetails from './components/DeliveryDetails';
 
 
@@ -19,9 +18,9 @@ class AppView extends Component {
           <form> 
             <Base bases={this.props.bases} onBaseChange={this.props.onBaseChange}/>
             <br />
-            <Sauce sauces={this.props.sauces}/>
+            <Sauce sauces={this.props.sauces} onSauceChange={this.props.onSauceChange}/>
             <br />
-            <Toppings toppings={this.props.toppings}/>
+            <Toppings toppings={this.props.toppings} onToppingChange={this.props.onToppingChange}/>
             <DeliveryDetails delivery={this.props.delivery} />
           </form>
           <OrderDetails />

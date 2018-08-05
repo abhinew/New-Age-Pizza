@@ -1,6 +1,7 @@
 import AppView from "./AppView";
 import { connect } from "react-redux";
-import { onBaseSelect } from './actions/ActionCreators';
+import { onBaseSelect, onSauceSelect, onToppingSelect } from './actions/ActionCreators';
+
 
 function mapStateToProps(state) {
     
@@ -20,9 +21,15 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch, getState) {
     
     return {
-        onBaseChange: function (base) {
+        onBaseChange: function(base) {
             dispatch(onBaseSelect(base));
         },
+        onSauceChange: function(sauce) {
+            dispatch(onSauceSelect(sauce));
+        },
+        onToppingChange: function(topping) {
+            dispatch(onToppingSelect(topping));
+        }
     };
 }
 
