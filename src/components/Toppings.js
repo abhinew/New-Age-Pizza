@@ -20,14 +20,13 @@ const styles = theme => ({
     },
 });
 
-
 class Toppings extends Component {
    
-    handleChange = topping => event => {
-        // if(this.props.selectedToppings.length < 3) {
-        //     this.props.onToppingChange(topping);
-        // }
-        this.props.onToppingChange(topping);
+    handleChange = event => {
+        let topping = event.target.value;
+        if(this.props.selectedToppings.length < 3 || (this.props.selectedToppings.indexOf(topping) !== -1)) {
+            this.props.onToppingChange(topping);
+        }
     }; 
     isChecked = (topping) => {
         if(this.props.selectedToppings.indexOf(topping) === -1) {
@@ -42,7 +41,7 @@ class Toppings extends Component {
         
         return (<FormControlLabel key={topping} control={<Checkbox
             checked={this.isChecked(topping)}
-            onChange={this.handleChange(topping)}
+            onChange={this.handleChange}
             value={topping}
             color="primary"
             />} 
