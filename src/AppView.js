@@ -3,7 +3,7 @@ import './App.css';
 import Base from './components/Base';
 import Sauce from './components/Sauce';
 import Toppings from './components/Toppings';
-import OrderDetails from './components/OrderDetails';
+
 import DeliveryDetails from './components/DeliveryDetails';
 
 
@@ -23,7 +23,10 @@ class AppView extends Component {
             <Toppings toppings={this.props.toppings} selectedToppings={this.props.selectedToppings} onToppingChange={this.props.onToppingChange}/>
             <DeliveryDetails delivery={this.props.delivery} />
           </form>
-          <OrderDetails />
+          <div className="order-details"> 
+                <span>Total</span>
+                <span>€{this.props.total}</span>
+          </div>
         </div>
       </div>
     );

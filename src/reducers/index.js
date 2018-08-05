@@ -11,12 +11,14 @@ export default (state = initialState, action = []) => {
                 return base.type === action.payload;
             });
             newState.selection.base = base;
+            newState.total = newState.selection.base.cost + newState.selection.sauce.cost + 3;
             break;
         case ADD_SAUCE_SELECTION:
             let sauce =  _.find(newState.sauces, function(sauce) {
                 return sauce.name === action.payload;
             });
             newState.selection.sauce = sauce;
+            newState.total = newState.selection.base.cost + newState.selection.sauce.cost + 3;
             break;
         case ADD_TOPPING_SELECTION:
             let currentIndex = newState.selection.toppings.indexOf(action.payload)
@@ -26,13 +28,12 @@ export default (state = initialState, action = []) => {
             }  
             else {
                 newState.selection.toppings.splice(currentIndex,1);
-            }
-            
-               
+            }   
+            newState.total = newState.selection.base.cost + newState.selection.sauce.cost + 3;
             break;
             // no default
     }
-
+    
     return newState
 }
 
