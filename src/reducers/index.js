@@ -1,10 +1,12 @@
 import initialState from '../lib/initialState';
-import { ADD_BASE_SELECTION, ADD_SAUCE_SELECTION, ADD_TOPPING_SELECTION } from '../actions/ActionCreators';
+import { ADD_BASE_SELECTION, ADD_SAUCE_SELECTION, ADD_TOPPING_SELECTION, ADD_DELIVERY } from '../actions/ActionCreators';
 import _ from "lodash";
 
 
 export default (state = initialState, action = []) => {
     let newState = _.cloneDeep(state);
+    
+    let deliveryCharge = 0;
     switch (action.type) {
         case ADD_BASE_SELECTION: 
            let base =  _.find(newState.bases, function(base) {
@@ -30,9 +32,19 @@ export default (state = initialState, action = []) => {
             }   
             
             break;
+        case ADD_DELIVERY:
+            if (newState.delivery == false)
+                newState.delivery = true;    
+            else
+                newState.delivery = false;
+
             // no default
     }
-    newState.total = newState.selection.base.cost + newState.selection.sauce.cost + 1.50;
+    if (newState.delivery === true) {
+        deliveryCharge = newState.total * 0.1;
+    }
+    
+    newState.total = newState.selection.base.cost + newState.selection.sauce.cost + (newState.selection.toppings.length * 0.50) + deliveryCharge;
     return newState
 }
 

@@ -59,7 +59,7 @@ class Toppings extends Component {
                 </label>
                 <br />
                 {this.props.toppings.map(this.createMenuItem)}
-                {this.props.selectedToppings.length >= 3 && <p style={{color: 'red'}}>You can choose maximum three toppings only</p>}
+                {this.props.selectedToppings.length > 3 && <p style={{color: 'red'}}>You can choose maximum three toppings only</p>}
                 
             </div>
         );

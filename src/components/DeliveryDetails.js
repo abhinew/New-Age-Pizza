@@ -23,7 +23,7 @@ const styles = theme => ({
 class DeliveryDetails extends Component {
     
     handleChange = event => {
-       
+       this.props.onDeliveryChange();
     }; 
    
     render() {
@@ -34,7 +34,7 @@ class DeliveryDetails extends Component {
                 Choose delivery:
                 </label>
                 <br />
-                <FormControlLabel control={<Checkbox value="checkedC" />} label="Add Turbo Drone Delivery for 10% extra" />
+                <FormControlLabel control={<Checkbox checked={this.props.delivery} onChange={this.handleChange} />} label="Add Turbo Drone Delivery for 10% extra" />
             </div>
         );
     }

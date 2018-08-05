@@ -21,7 +21,7 @@ class AppView extends Component {
             <Sauce sauces={this.props.sauces} selectedSauce={this.props.selectedSauce} onSauceChange={this.props.onSauceChange}/>
             <br />
             <Toppings toppings={this.props.toppings} selectedToppings={this.props.selectedToppings} onToppingChange={this.props.onToppingChange}/>
-            <DeliveryDetails delivery={this.props.delivery} />
+            <DeliveryDetails delivery={this.props.delivery} onDeliveryChange={this.props.onDeliveryChange} />
           </form>
           <div className="order-details"> 
                 <span>Total</span>
