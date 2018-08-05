@@ -12,15 +12,15 @@ let bases = [{
 }];
 
 let sauces = [{
-    name: "white",
+    name: "white - €1.00",
     cost: 1.00
 },
 {
-    name: "red",
+    name: "red - €1.00",
     cost: 1.00
 },
 {
-    name: "mix",
+    name: "mix - €1.50",
     cost: 1.50
 }]
 const initialState =  {

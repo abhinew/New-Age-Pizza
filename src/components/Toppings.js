@@ -21,11 +21,19 @@ const styles = theme => ({
 });
 
 class Toppings extends Component {
-   
+   state = {
+    showError: false
+   };
     handleChange = event => {
         let topping = event.target.value;
+        
+        
         if(this.props.selectedToppings.length < 3 || (this.props.selectedToppings.indexOf(topping) !== -1)) {
             this.props.onToppingChange(topping);
+            this.setState({showError: false});
+        }
+        else {
+            this.setState({showError: true});
         }
     }; 
     isChecked = (topping) => {
@@ -59,7 +67,7 @@ class Toppings extends Component {
                 </label>
                 <br />
                 {this.props.toppings.map(this.createMenuItem)}
-                {this.props.selectedToppings.length > 3 && <p style={{color: 'red'}}>You can choose maximum three toppings only</p>}
+                { this.state.showError? <p style={{color: 'red'}}>You can choose maximum three toppings only</p>: null}
                 
             </div>
         );
