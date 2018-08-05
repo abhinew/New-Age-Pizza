@@ -16,11 +16,11 @@ class AppView extends Component {
        <h1>Welcome to New Age Pizza</h1>
         <div className="content">
           <form> 
-            <Base bases={this.props.bases} onBaseChange={this.props.onBaseChange}/>
+            <Base bases={this.props.bases} selectedBase={this.props.selectedBase} onBaseChange={this.props.onBaseChange}/>
             <br />
-            <Sauce sauces={this.props.sauces} onSauceChange={this.props.onSauceChange}/>
+            <Sauce sauces={this.props.sauces} selectedSauce={this.props.selectedSauce} onSauceChange={this.props.onSauceChange}/>
             <br />
-            <Toppings toppings={this.props.toppings} onToppingChange={this.props.onToppingChange}/>
+            <Toppings toppings={this.props.toppings} selectedToppings={this.props.selectedToppings} onToppingChange={this.props.onToppingChange}/>
             <DeliveryDetails delivery={this.props.delivery} />
           </form>
           <OrderDetails />

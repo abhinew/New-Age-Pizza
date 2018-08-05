@@ -20,13 +20,11 @@ const styles = theme => ({
 
 
 class Base extends Component {
-    state = {
-        base: ""
-    };
+   
 
     handleChange = event => {
         
-        this.setState({ base: event.target.value });
+        
         this.props.onBaseChange(event.target.value);
     };
 
@@ -37,6 +35,7 @@ class Base extends Component {
     render() {
        
         const { classes } = this.props;
+        console.log(this.props);
         
         return (    
             <div>
@@ -46,16 +45,14 @@ class Base extends Component {
                 <br />
                 <FormControl className={classes.formControl}>
                     <Select
-                        value={this.state.base}
+                        value={this.props.selectedBase.type}
                         onChange={this.handleChange}
                         inputProps={{
                         name: 'base'
                         // id: 'age-simple',
                         }}
                     >
-                    <MenuItem value="">
-                        <em>None</em>
-                    </MenuItem>
+                   
                     {this.props.bases.map(this.createMenuItem)}
                 
                     </Select>

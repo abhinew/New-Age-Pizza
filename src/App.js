@@ -8,8 +8,11 @@ function mapStateToProps(state) {
     
     return {
         toppings: state.toppings,
+        selectedToppings: state.selection.toppings,
         bases: state.bases,
+        selectedBase: state.selection.base,
         sauces: state.sauces,
+        selectedSauce: state.selection.sauce,
         delivery: state.delivery,
         selection: state.selection,
         total: state.total

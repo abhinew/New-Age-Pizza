@@ -20,11 +20,9 @@ const styles = theme => ({
 
 
 class Sauce extends Component {
-    state = {
-      sauce: ""
-    };
+   
     handleChange = event => {
-      this.setState({ sauce: event.target.value });
+      
       this.props.onSauceChange(event.target.value);
     }; 
     createMenuItem = (item) => {
@@ -40,15 +38,12 @@ class Sauce extends Component {
             <br />
             <FormControl className={classes.formControl}>
                 <Select
-                  value={this.state.sauce}
+                  value={this.props.selectedSauce.name}
                   onChange={this.handleChange}
                   inputProps={{
                     name: 'sauce'
                   }}
                 >
-                <MenuItem value="">
-                  <em>None</em>
-                </MenuItem>
                 {this.props.sauces.map(this.createMenuItem)}
               
               </Select>

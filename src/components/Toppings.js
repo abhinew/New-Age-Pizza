@@ -22,25 +22,25 @@ const styles = theme => ({
 
 
 class Toppings extends Component {
-    toppingCount = 0;
-    state = {
-      
-        
-     
-      };
-      handleChange = topping => event => {
-            
-       
-            this.setState({ [topping]: event.target.checked });
-            
+   
+    handleChange = topping => event => {
             this.props.onToppingChange(topping);
     }; 
+    isChecked = (topping) => {
+        if(this.props.selectedToppings.indexOf(topping) === -1) {
+            return false;
+        }
+        else {
+            return true;
+        }
+        
+    }
     createMenuItem = (topping) => {
         
         return (<FormControlLabel key={topping} control={<Checkbox
-            checked={this.state.topping}
+            checked={this.isChecked(topping)}
             onChange={this.handleChange(topping)}
-            value={this.state.topping}
+            value={topping}
             color="primary"
             />} 
             label={topping} 
